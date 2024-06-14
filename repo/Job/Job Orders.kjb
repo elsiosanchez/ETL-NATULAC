@@ -1,14 +1,13 @@
 <job>
-  <name>Create_Data_Structure</name>
+  <name>Job Orders</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>1</job_status>
-  <directory>/Jobs</directory>
+  <directory>/ETL/Job</directory>
   <created_user>-</created_user>
-  <created_date>2022/11/13 23:46:04.902</created_date>
+  <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022/11/14 09:43:57.514</modified_date>
+  <modified_date>2024/06/14 19:57:49.709</modified_date>
   <parameters>
     </parameters>
   <slaveservers>
@@ -287,6 +286,78 @@
   <shared_objects_file/>
   <entries>
     <entry>
+      <name>Set variables</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <attributes/>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>SOURCE_DIRECTORY</variable_name>
+          <variable_value>${SOURCE_DIRECTORY}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>HOST</variable_name>
+          <variable_value>${HOST}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>PORT</variable_name>
+          <variable_value>${PORT}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>TOKEN</variable_name>
+          <variable_value>${TOKEN}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>SET_SOURCE_DIRECTORY</variable_name>
+          <variable_value>${SET_SOURCE_DIRECTORY}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>EMAIL_SMTP_SERVER</variable_name>
+          <variable_value>${SMTP_SERVER}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>EMAIL_SMTP_PORT</variable_name>
+          <variable_value>${SMTP_PORT}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>EMAIL_SENDER_ADDRESS</variable_name>
+          <variable_value>${SENDER_ADDRESS}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>EMAIL_PASSWORD</variable_name>
+          <variable_value>${PASSWORD}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>EMAIL_SUBJECT</variable_name>
+          <variable_value>ETL NATULAC</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>EMAIL_DESTINATION_ADDRESS</variable_name>
+          <variable_value>${DESTINATION_ADDRESS}</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
       <name>Start</name>
       <description/>
       <type>SPECIAL</type>
@@ -304,20 +375,20 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>200</xloc>
-      <yloc>100</yloc>
+      <xloc>256</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Create_Data_Structure</name>
+      <name>Transformation Save Order ADempiere</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Create_Data_Structure</transname>
-      <directory>/Jobs</directory>
+      <transname>Transformation Send Orders</transname>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -344,8 +415,98 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
+      <xloc>672</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Send Mail with Succes</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${EMAIL_SMTP_SERVER}</server>
+      <port>${EMAIL_SMTP_PORT}</port>
+      <destination>${EMAIL_DESTINATION_ADDRESS}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${EMAIL_SENDER_ADDRESS}</replyto>
+      <replytoname>${EMAIL_SUBJECT}</replytoname>
+      <subject>ETL Execution Successes</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>Order Created in ADempiere</comment>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>${EMAIL_SENDER_ADDRESS}</auth_user>
+      <auth_password>${EMAIL_PASSWORD}</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>Y</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>TLS</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>
+        <filetype>GENERAL</filetype>
+      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>976</xloc>
+      <yloc>176</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Send Mail with error</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${EMAIL_SMTP_SERVER}</server>
+      <port>${EMAIL_SMTP_PORT}</port>
+      <destination>${EMAIL_DESTINATION_ADDRESS}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${EMAIL_SENDER_ADDRESS}</replyto>
+      <replytoname>${EMAIL_SUBJECT}</replytoname>
+      <subject>ETL Execution Error</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>${EMAIL_SENDER_ADDRESS}</auth_user>
+      <auth_password>${EMAIL_PASSWORD}</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>Y</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>TLS</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>
+        <filetype>GENERAL</filetype>
+      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>960</xloc>
+      <yloc>336</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -356,15 +517,27 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>600</xloc>
-      <yloc>100</yloc>
+      <xloc>1168</xloc>
+      <yloc>176</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success 2</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1136</xloc>
+      <yloc>336</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>Start</from>
-      <to>Create_Data_Structure</to>
+      <to>Set variables</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -372,8 +545,44 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Create_Data_Structure</from>
+      <from>Set variables</from>
+      <to>Transformation Save Order ADempiere</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Save Order ADempiere</from>
+      <to>Send Mail with Succes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Save Order ADempiere</from>
+      <to>Send Mail with error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Send Mail with Succes</from>
       <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Send Mail with error</from>
+      <to>Success 2</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
