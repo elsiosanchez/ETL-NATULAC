@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  rundeck:
+    container_name: ${CONTAINER_NAME}
+    image: rundeck/rundeck:4.12.0
+    restart: ${CONTAINER_RESTART}
+    deploy:
+      resources:
+        limits:
+          cpus: '${CONTAINER_LIMIT_CPU}'
+          memory: ${CONTAINER_LIMIT_MEMORY}
+    ports:
+      - 4440:4440
+    volumes:
+      - ${REALM_SETTING}:/home/rundeck/server/config/realm.properties
+      - ${USER_POLICIES}:/home/rundeck/etc/user.aclpolicy

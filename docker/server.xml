@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slave_config>
+<!-- on a master server, the slaveserver node contains information about this Carte instance -->
+    <slaveserver>
+        <name>Master</name>
+        <hostname>0.0.0.0</hostname>
+        <port>8080</port>
+        <username>admin</username>
+        <password>@CARTE_PASSWORD@</password>
+        <master>Y</master>
+    </slaveserver>
+</slave_config>

@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  etl:
+    container_name: ${CONTAINER_NAME}
+    image: registry.digitalocean.com/erpya/etl-iancarina:latest
+    restart: ${CONTAINER_RESTART}
+    deploy:
+      resources:
+        limits:
+          cpus: '${CONTAINER_LIMIT_CPU}'
+          memory: ${CONTAINER_LIMIT_MEMORY}
+    ports:
+      - 8080:8080
+    volumes:
+      - ${HOST_PATH}:/opt/transformations
+    environment:
+      TARGET_DB_HOST: ${TARGET_DB_HOST}
+      TARGET_DB_NAME: ${TARGET_DB_NAME}
+      TARGET_DB_PASSWORD: ${TARGET_DB_PASSWORD}
+      TARGET_DB_PORT: ${TARGET_DB_PORT}
+      TARGET_DB_USERNAME: ${TARGET_DB_USERNAME}
+      CARTE_PASSWORD: ${CARTE_PASSWORD}
+      EMAIL_SMTP_SERVER: ${EMAIL_SMTP_SERVER}
+      EMAIL_SMTP_PORT: ${EMAIL_SMTP_PORT}
+      EMAIL_SENDER_ADDRESS: ${EMAIL_SENDER_ADDRESS}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      EMAIL_SENDER_NAME: ${EMAIL_SENDER_NAME}
+      EMAIL_DESTINATION_ADDRESS: ${EMAIL_DESTINATION_ADDRESS}
