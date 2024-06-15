@@ -1,12 +1,11 @@
 <transformation>
   <info>
-    <name>Create_Data_Structure</name>
+    <name>prices_list(List_Prices_List)</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
-    <directory>/Transformations</directory>
+    <directory>/ETL/Transformations</directory>
     <parameters>
     </parameters>
     <log>
@@ -427,70 +426,44 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2022/11/13 23:10:17.175</created_date>
+    <created_date>2024/02/14 16:20:19.527</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/07/19 10:34:29.935</modified_date>
+    <modified_date>2024/03/18 14:28:39.990</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>DATA_TARGET</name>
-    <server>${TARGET_DB_HOST}</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>${TARGET_DB_NAME}</database>
-    <port>${TARGET_DB_PORT}</port>
-    <username>${TARGET_DB_USERNAME}</username>
-    <password>${TARGET_DB_PASSWORD}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>${TARGET_DB_PORT}</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <order>
+    <hop>
+      <from>JSON ListProducts</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>JSON Result</from>
+      <to>JSON ListProducts</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REST List Prices List</from>
+      <to>JSON Result</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>tlista_precio</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
+      <to>REST List Prices List</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
-    <name>Create Data Structure</name>
-    <type>ExecSQL</type>
+    <name>Get variables</name>
+    <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -499,160 +472,32 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DATA_TARGET</connection>
-    <execute_each_row>N</execute_each_row>
-    <single_statement>Y</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>--Product Entity Definition
-CREATE TABLE IF NOT EXISTS public.products(
-productId VARCHAR(20),
-name VARCHAR(40),
-productClass VARCHAR(20),
-unitOfMeasure VARCHAR(20),
-barCode VARCHAR(13),
-updateTime TIMESTAMP DEFAULT NOW(),
-tenantId VARCHAR(100),
-fileName VARCHAR(500)
-);
-
---Files Entity Definition
-CREATE TABLE IF NOT EXISTS public.files(
-tenantId VARCHAR(100),
-fileName VARCHAR(500),
-recordReadFromFile NUMERIC DEFAULT 0,
-recordAffected NUMERIC DEFAULT 0,
-processed boolean default false
-);
-
---Customer Entity Definition
-CREATE TABLE IF NOT EXISTS public.customers(
-taxId VARCHAR(10),
-name VARCHAR(40),
-country VARCHAR(20),
-state VARCHAR(20),
-municipality VARCHAR(20),
-city VARCHAR(20),
-address VARCHAR(50),
-latitude NUMERIC DEFAULT 0,
-longitude NUMERIC DEFAULT 0,
-isFiscalAddress VARCHAR(2),
-salesChannel VARCHAR(20),
-route VARCHAR(20),
-updateTime TIMESTAMP DEFAULT NOW(),
-tenantId VARCHAR(100),
-fileName VARCHAR(500)
-);
-
-
---Sales Invoice Definition
-CREATE TABLE IF NOT EXISTS public.sales_invoice(
-route VARCHAR(20),
-taxId VARCHAR(10),
-businessPartnerName VARCHAR(40),
-country VARCHAR(20),
-state VARCHAR(20),
-municipality VARCHAR(20),
-city VARCHAR(20),
-shipmentAddress VARCHAR(50),
-productId VARCHAR(20),
-barCode VARCHAR(13),
-unitOfMeasure VARCHAR(20),
-documentDate TIMESTAMP,
-documentNumber VARCHAR(10),
-productName VARCHAR(40),
-vendorName VARCHAR(20),
-salesChannel VARCHAR(20),
-quantity NUMERIC,
-price NUMERIC,
-isoCurrency VARCHAR(3),
-netAmount NUMERIC,
-updateTime TIMESTAMP DEFAULT NOW(),
-tenantId VARCHAR(100),
-fileName VARCHAR(500)
-);
-
---Sales Invoice Definition
-CREATE TABLE IF NOT EXISTS public.inventory(
-productId VARCHAR(20),
-productName VARCHAR(40),
-barCode VARCHAR(13),
-availability NUMERIC,
-updateTime TIMESTAMP DEFAULT NOW(),
-inventoryDate TIMESTAMP,
-tenantId VARCHAR(100),
-fileName VARCHAR(500)
-);
-
-CREATE TABLE IF NOT EXISTS public.tenant_access
-(
-tenantid VARCHAR(100),
-email VARCHAR(255)
-);
-
-CREATE INDEX IF NOT EXISTS IX_Files ON files(tenantId, fileName); 
-
-CREATE OR REPLACE FUNCTION affected_records_files() 
-RETURNS TRIGGER 
-LANGUAGE 'plpgsql' 
-COST 100
-VOLATILE NOT LEAKPROOF 
-AS $BODY$
-    BEGIN
-        IF (TG_OP = 'UPDATE') THEN
-            UPDATE files SET recordAffected = recordAffected +1 WHERE tenantId = NEW.tenantId AND fileName = NEW.fileName;
-		END IF;
-        IF (TG_OP = 'INSERT') THEN
-            UPDATE files SET recordAffected = recordAffected +1 WHERE tenantId = NEW.tenantId AND fileName = NEW.fileName;
-        END IF;
-        RETURN NULL;
-    END
-$BODY$;
-
-
-CREATE TRIGGER  products_file_update
-AFTER INSERT OR UPDATE ON products
-    FOR EACH ROW EXECUTE FUNCTION affected_records_files();
-	
-CREATE TRIGGER customers_file_update
-AFTER INSERT OR UPDATE ON customers
-    FOR EACH ROW EXECUTE FUNCTION affected_records_files();
-
-CREATE TRIGGER sales_invoice_file_update
-AFTER INSERT OR UPDATE ON sales_invoice
-    FOR EACH ROW EXECUTE FUNCTION affected_records_files();
-	
-
-CREATE TRIGGER inventory_file_update
-AFTER INSERT OR UPDATE ON inventory
-    FOR EACH ROW EXECUTE FUNCTION affected_records_files();
-
-
-CREATE INDEX IF NOT EXISTS I_Key_Products ON Products(tenantId, productId);
-CREATE INDEX IF NOT EXISTS I_Key_Customers ON Customers(tenantId, taxId);
-CREATE INDEX IF NOT EXISTS I_Key_Inventory ON Inventory(tenantId, productId);
-CREATE INDEX IF NOT EXISTS I_Key_Sales_Invoice ON Sales_Invoice(taxId, tenantId, documentNumber, productId);
-ALTER TABLE IF EXISTS public.sales_invoice ADD COLUMN IF NOT EXISTS updateTimeData TIMESTAMP;
-ALTER TABLE IF EXISTS public.inventory ADD COLUMN IF NOT EXISTS updateTimeData TIMESTAMP;
-
---ALTER TABLE IF EXISTS public.products ADD COLUMN IF NOT EXISTS tenantId VARCHAR(100);
---ALTER TABLE IF EXISTS public.products ADD COLUMN IF NOT EXISTS fileName VARCHAR(500);
---ALTER TABLE IF EXISTS public.files ADD COLUMN IF NOT EXISTS processed boolean default false;
---ALTER TABLE IF EXISTS public.customers ADD COLUMN IF NOT EXISTS address VARCHAR(500);
-
-
-/*
-GRANT usage ON SCHEMA public TO external_user; 
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO external_user;
-GRANT external_user TO authenticator;
-*/</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-    </arguments>
+    <fields>
+      <field>
+        <name>FULL_PATH</name>
+        <variable>${HOST}:${PORT}/v1/prices-list</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ATORIZATIONS</name>
+        <variable>${TOKEN}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -662,8 +507,360 @@ GRANT external_user TO authenticator;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>80</yloc>
+      <xloc>256</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JSON ListProducts</name>
+    <type>JsonInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <readurl>N</readurl>
+    <removeSourceField>N</removeSourceField>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <ignoreMissingPath>Y</ignoreMissingPath>
+    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
+    <rownum_field/>
+    <file>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>id</name>
+        <path>$..id</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>name</name>
+        <path>$..name</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <IsInFields>Y</IsInFields>
+    <IsAFile>N</IsAFile>
+    <valueField>products</valueField>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>717</xloc>
+      <yloc>412</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JSON Result</name>
+    <type>JsonInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <readurl>N</readurl>
+    <removeSourceField>N</removeSourceField>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <ignoreMissingPath>Y</ignoreMissingPath>
+    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
+    <rownum_field/>
+    <file>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>record_count</name>
+        <path>$..record_count</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>products</name>
+        <path>$..records</path>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>next_page_token</name>
+        <path>$..next_page_token</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <IsInFields>Y</IsInFields>
+    <IsAFile>N</IsAFile>
+    <valueField>result</valueField>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>413</xloc>
+      <yloc>412</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REST List Prices List</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <applicationType>JSON</applicationType>
+    <method>GET</method>
+    <url/>
+    <urlInField>Y</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>FULL_PATH</urlField>
+    <bodyField/>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <preemptive>N</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      <header>
+        <field>ATORIZATIONS</field>
+        <name>Authorization</name>
+      </header>
+    </headers>
+    <parameters>
+      </parameters>
+    <matrixParameters>
+      </matrixParameters>
+    <result>
+      <name>result</name>
+      <code/>
+      <response_time/>
+      <response_header/>
+    </result>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>413</xloc>
+      <yloc>268</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id</name>
+      </field>
+      <field>
+        <name>name</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>717</xloc>
+      <yloc>268</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>tlista_precio</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>|</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${SOURCE_DIRECTORY}/tlista_precio</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>id</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>name</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>973</xloc>
+      <yloc>268</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
