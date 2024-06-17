@@ -1,36 +1,15 @@
 <job>
-  <name>job_export</name>
+  <name>Job Main</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>0</job_status>
   <directory>/ETL/Job</directory>
   <created_user>-</created_user>
   <created_date>2024/02/14 07:57:56.220</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/06/17 16:11:35.092</modified_date>
+  <modified_date>2024/06/14 19:57:48.901</modified_date>
   <parameters>
-    <parameter>
-      <name>HOST</name>
-      <default_value>@HOST@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>PORT</name>
-      <default_value>@PORT@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>SOURCE_DIRECTORY</name>
-      <default_value>@SOURCE_DIRECTORY@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>TOKEN</name>
-      <default_value>@TOKEN@</default_value>
-      <description/>
-    </parameter>
-  </parameters>
+    </parameters>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -374,7 +353,7 @@
       <trans_object_id/>
       <filename/>
       <transname>articulos_unidad(ListProductsUOM)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Job</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -414,7 +393,7 @@
       <trans_object_id/>
       <filename/>
       <transname>banks(List_Banks)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -454,7 +433,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation Clientes</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -494,7 +473,7 @@
       <trans_object_id/>
       <filename/>
       <transname>currency_rate(List_Currency_Rates)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -534,7 +513,7 @@
       <trans_object_id/>
       <filename/>
       <transname>credit_limit(List_Credit_Limit)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -574,7 +553,7 @@
       <trans_object_id/>
       <filename/>
       <transname>customer_payment_terms(List_Customers_Payment_Terms)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -614,7 +593,7 @@
       <trans_object_id/>
       <filename/>
       <transname>open_invoices(List_Open_Invoices)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -654,7 +633,7 @@
       <trans_object_id/>
       <filename/>
       <transname>prices_list(List_Prices_List)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -694,7 +673,7 @@
       <trans_object_id/>
       <filename/>
       <transname>products(List_Products)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -734,7 +713,7 @@
       <trans_object_id/>
       <filename/>
       <transname>product_details</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -774,7 +753,7 @@
       <trans_object_id/>
       <filename/>
       <transname>products_prices(List_Products_Prices)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -814,7 +793,7 @@
       <trans_object_id/>
       <filename/>
       <transname>sales_region(List_Sales_Region)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -854,7 +833,7 @@
       <trans_object_id/>
       <filename/>
       <transname>uom(Unit_Of_Measures)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -894,7 +873,7 @@
       <trans_object_id/>
       <filename/>
       <transname>ListPaymentTerms(tipo_pago)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -934,7 +913,7 @@
       <trans_object_id/>
       <filename/>
       <transname>ListProductsPrices(precio_articulo)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -974,7 +953,7 @@
       <trans_object_id/>
       <filename/>
       <transname>NO_BORRAR_importa_ERP_FM</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1014,7 +993,7 @@
       <trans_object_id/>
       <filename/>
       <transname>CustomerVisitPlan(plan_visita)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1054,7 +1033,7 @@
       <trans_object_id/>
       <filename/>
       <transname>List Invoice Orders (est_pedidoerp.csv)</transname>
-      <directory>/${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1094,7 +1073,7 @@
       <trans_object_id/>
       <filename/>
       <transname>articulos_unidad(ListProductsUOM)1</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1134,7 +1113,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation List Zones Sectors</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1174,7 +1153,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation List Sectors (sector.csv)</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>

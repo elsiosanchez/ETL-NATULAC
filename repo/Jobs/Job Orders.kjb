@@ -1,71 +1,15 @@
 <job>
-  <name>job_import</name>
+  <name>Job Orders</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>0</job_status>
   <directory>/ETL/Job</directory>
   <created_user>-</created_user>
   <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/06/17 16:11:53.371</modified_date>
+  <modified_date>2024/06/14 19:57:49.709</modified_date>
   <parameters>
-    <parameter>
-      <name>EMAIL_DESTINATION_ADDRESS</name>
-      <default_value>@EMAIL_DESTINATION_ADDRESS@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>EMAIL_PASSWORD</name>
-      <default_value>@EMAIL_PASSWORD@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>EMAIL_SENDER_ADDRESS</name>
-      <default_value>@EMAIL_SENDER_ADDRESS@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>EMAIL_SENDER_NAME</name>
-      <default_value>@EMAIL_SENDER_NAME@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>EMAIL_SMTP_PORT</name>
-      <default_value>@EMAIL_SMTP_PORT@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>EMAIL_SMTP_SERVER</name>
-      <default_value>@EMAIL_SMTP_SERVER@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>HOST</name>
-      <default_value>@HOST@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>PORT</name>
-      <default_value>@PORT@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>SET_SOURCE_DIRECTORY</name>
-      <default_value>@SET_SOURCE_DIRECTORY@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>SOURCE_DIRECTORY</name>
-      <default_value>@SOURCE_DIRECTORY@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>TOKEN</name>
-      <default_value>@TOKEN@</default_value>
-      <description/>
-    </parameter>
-  </parameters>
+    </parameters>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -377,32 +321,32 @@
         </field>
         <field>
           <variable_name>EMAIL_SMTP_SERVER</variable_name>
-          <variable_value>${EMAIL_SMTP_SERVER}</variable_value>
+          <variable_value>${SMTP_SERVER}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>EMAIL_SMTP_PORT</variable_name>
-          <variable_value>${EMAIL_SMTP_PORT}</variable_value>
+          <variable_value>${SMTP_PORT}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>EMAIL_SENDER_ADDRESS</variable_name>
-          <variable_value>${EMAIL_SENDER_ADDRESS}</variable_value>
+          <variable_value>${SENDER_ADDRESS}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>EMAIL_PASSWORD</variable_name>
-          <variable_value>${EMAIL_PASSWORD}</variable_value>
+          <variable_value>${PASSWORD}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>EMAIL_SUBJECT</variable_name>
-          <variable_value>${EMAIL_SENDER_NAME}</variable_value>
+          <variable_value>ETL NATULAC</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>EMAIL_DESTINATION_ADDRESS</variable_name>
-          <variable_value>${EMAIL_DESTINATION_ADDRESS}</variable_value>
+          <variable_value>${DESTINATION_ADDRESS}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
       </fields>
@@ -444,7 +388,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation Send Orders</transname>
-      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
+      <directory>/ETL/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
