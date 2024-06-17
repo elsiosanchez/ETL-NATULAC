@@ -480,7 +480,7 @@
     <fields>
       <field>
         <name>FULL_PATH</name>
-        <variable>${HOST}:${PORT}/v1/products/unit-of-measures</variable>
+        <variable>${HOST_URL}/v1/products/unit-of-measures</variable>
         <type>String</type>
         <format/>
         <currency/>

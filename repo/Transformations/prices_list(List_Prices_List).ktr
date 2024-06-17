@@ -475,7 +475,7 @@
     <fields>
       <field>
         <name>FULL_PATH</name>
-        <variable>${HOST}:${PORT}/v1/prices-list</variable>
+        <variable>${HOST_URL}/v1/prices-list</variable>
         <type>String</type>
         <format/>
         <currency/>
