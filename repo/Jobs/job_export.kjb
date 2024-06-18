@@ -41,8 +41,8 @@
       <description/>
     </parameter>
     <parameter>
-      <name>HOST_URL</name>
-      <default_value>@HOST_URL@</default_value>
+      <name>PLAY_HOST_URL</name>
+      <default_value>@PLAY_HOST_URL@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -51,13 +51,13 @@
       <description/>
     </parameter>
     <parameter>
-      <name>SET_SOURCE_DIRECTORY</name>
-      <default_value>@SET_SOURCE_DIRECTORY@</default_value>
+      <name>PLAY_INPUT_PATH</name>
+      <default_value>@PLAY_INPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
-      <name>SOURCE_DIRECTORY</name>
-      <default_value>@SOURCE_DIRECTORY@</default_value>
+      <name>PLAY_OUTPUT_PATH</name>
+      <default_value>@PLAY_OUTPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -352,12 +352,12 @@
       <fields>
         <field>
           <variable_name>SOURCE_DIRECTORY</variable_name>
-          <variable_value>${SOURCE_DIRECTORY}</variable_value>
+          <variable_value>${PLAY_OUTPUT_PATH}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>HOST_URL</variable_name>
-          <variable_value>${HOST_URL}</variable_value>
+          <variable_value>${PLAY_HOST_URL}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
