@@ -4,11 +4,11 @@
   <extended_description/>
   <job_version/>
   <job_status>0</job_status>
-  <directory>/ETL/Job</directory>
+  <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/06/17 18:01:41.082</modified_date>
+  <modified_date>2024/06/18 18:50:56.036</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -41,8 +41,8 @@
       <description/>
     </parameter>
     <parameter>
-      <name>HOST_URL</name>
-      <default_value>@HOST_URL@</default_value>
+      <name>PLAY_HOST_URL</name>
+      <default_value>@PLAY_HOST_URL@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -51,13 +51,13 @@
       <description/>
     </parameter>
     <parameter>
-      <name>SET_SOURCE_DIRECTORY</name>
-      <default_value>@SET_SOURCE_DIRECTORY@</default_value>
+      <name>PLAY_INPUT_PATH</name>
+      <default_value>@PLAY_INPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
-      <name>SOURCE_DIRECTORY</name>
-      <default_value>@SOURCE_DIRECTORY@</default_value>
+      <name>PLAY_OUTPUT_PATH</name>
+      <default_value>@PLAY_OUTPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -162,22 +162,22 @@
     </field>
     <field>
       <id>EXECUTING_SERVER</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>EXECUTING_SERVER</name>
     </field>
     <field>
       <id>EXECUTING_USER</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>EXECUTING_USER</name>
     </field>
     <field>
       <id>START_JOB_ENTRY</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>START_JOB_ENTRY</name>
     </field>
     <field>
       <id>CLIENT</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>CLIENT</name>
     </field>
   </job-log-table>
@@ -263,12 +263,12 @@
     </field>
     <field>
       <id>LOG_FIELD</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>LOG_FIELD</name>
     </field>
     <field>
       <id>COPY_NR</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>COPY_NR</name>
     </field>
   </jobentry-log-table>
@@ -352,12 +352,12 @@
       <fields>
         <field>
           <variable_name>SOURCE_DIRECTORY</variable_name>
-          <variable_value>${SOURCE_DIRECTORY}</variable_value>
+          <variable_value>${PLAY_OUTPUT_PATH}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>HOST_URL</variable_name>
-          <variable_value>${HOST_URL}</variable_value>
+          <variable_value>${PLAY_HOST_URL}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -372,7 +372,7 @@
         </field>
         <field>
           <variable_name>SET_SOURCE_DIRECTORY</variable_name>
-          <variable_value>${SET_SOURCE_DIRECTORY}</variable_value>
+          <variable_value>${PLAY_INPUT_PATH}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
