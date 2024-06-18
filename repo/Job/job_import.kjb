@@ -42,7 +42,7 @@
     </parameter>
     <parameter>
       <name>HOST_URL</name>
-      <default_value>@HOST_URL@</default_value>
+      <default_value>http://10.11.12.194:5561</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -52,17 +52,17 @@
     </parameter>
     <parameter>
       <name>SET_SOURCE_DIRECTORY</name>
-      <default_value>@SET_SOURCE_DIRECTORY@</default_value>
+      <default_value>/tmp/files/</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>SOURCE_DIRECTORY</name>
-      <default_value>@SOURCE_DIRECTORY@</default_value>
+      <default_value>/tmp/files/</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>TOKEN</name>
-      <default_value>@TOKEN@</default_value>
+      <default_value>Bearer eyJhbGciOiJIUzI1NiJ9.eyJBRF9DbGllbnRfSUQiOjAsIkFEX09yZ19JRCI6MCwiQURfUm9sZV9JRCI6MCwiQURfVXNlcl9JRCI6MTAwLCJNX1dhcmVob3VzZV9JRCI6MCwiQURfTGFuZ3VhZ2UiOiJlbl9VUyIsImlhdCI6MTcxNzg2MDQwM30.3ZmU_DvxpVwIDY9wfZjs6KrRTwPNQBr12qh_fszQ2Qg</default_value>
       <description/>
     </parameter>
   </parameters>
