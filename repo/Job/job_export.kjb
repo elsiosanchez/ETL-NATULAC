@@ -434,7 +434,7 @@
       <trans_object_id/>
       <filename/>
       <transname>articulos_unidad(ListProductsUOM)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -474,7 +474,7 @@
       <trans_object_id/>
       <filename/>
       <transname>banks(List_Banks)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -514,7 +514,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation Clientes</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -554,7 +554,7 @@
       <trans_object_id/>
       <filename/>
       <transname>currency_rate(List_Currency_Rates)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -594,7 +594,7 @@
       <trans_object_id/>
       <filename/>
       <transname>credit_limit(List_Credit_Limit)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -634,7 +634,7 @@
       <trans_object_id/>
       <filename/>
       <transname>customer_payment_terms(List_Customers_Payment_Terms)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -674,7 +674,7 @@
       <trans_object_id/>
       <filename/>
       <transname>open_invoices(List_Open_Invoices)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -714,7 +714,7 @@
       <trans_object_id/>
       <filename/>
       <transname>prices_list(List_Prices_List)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -754,7 +754,7 @@
       <trans_object_id/>
       <filename/>
       <transname>products(List_Products)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -794,7 +794,7 @@
       <trans_object_id/>
       <filename/>
       <transname>product_details</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -834,7 +834,7 @@
       <trans_object_id/>
       <filename/>
       <transname>products_prices(List_Products_Prices)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -874,7 +874,7 @@
       <trans_object_id/>
       <filename/>
       <transname>sales_region(List_Sales_Region)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -914,7 +914,7 @@
       <trans_object_id/>
       <filename/>
       <transname>uom(Unit_Of_Measures)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -954,7 +954,7 @@
       <trans_object_id/>
       <filename/>
       <transname>ListPaymentTerms(tipo_pago)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -994,7 +994,7 @@
       <trans_object_id/>
       <filename/>
       <transname>ListProductsPrices(precio_articulo)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1034,7 +1034,7 @@
       <trans_object_id/>
       <filename/>
       <transname>NO_BORRAR_importa_ERP_FM</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1074,7 +1074,7 @@
       <trans_object_id/>
       <filename/>
       <transname>CustomerVisitPlan(plan_visita)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1114,7 +1114,7 @@
       <trans_object_id/>
       <filename/>
       <transname>List Invoice Orders (est_pedidoerp.csv)</transname>
-      <directory>//opt/pentaho/repo/Transformations</directory>
+      <directory>/${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1154,7 +1154,7 @@
       <trans_object_id/>
       <filename/>
       <transname>articulos_unidad(ListProductsUOM)1</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1194,7 +1194,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation List Zones Sectors</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1234,7 +1234,7 @@
       <trans_object_id/>
       <filename/>
       <transname>Transformation List Sectors (sector.csv)</transname>
-      <directory>/opt/pentaho/repo/Transformations</directory>
+      <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
