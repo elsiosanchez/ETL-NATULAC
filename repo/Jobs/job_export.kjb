@@ -4,11 +4,11 @@
   <extended_description/>
   <job_version/>
   <job_status>0</job_status>
-  <directory>/ETL/Job</directory>
+  <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2024/02/14 07:57:56.220</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/06/18 12:36:40.285</modified_date>
+  <modified_date>2024/06/18 16:21:56.855</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -48,6 +48,11 @@
     <parameter>
       <name>PORT</name>
       <default_value>@PORT@</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>SET_SOURCE_DIRECTORY</name>
+      <default_value>@SET_SOURCE_DIRECTORY@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -399,7 +404,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
+      <xloc>592</xloc>
       <yloc>352</yloc>
       <attributes_kjc/>
     </entry>
@@ -502,7 +507,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>336</xloc>
-      <yloc>464</yloc>
+      <yloc>480</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -541,7 +546,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
+      <xloc>128</xloc>
       <yloc>384</yloc>
       <attributes_kjc/>
     </entry>
@@ -581,8 +586,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>304</yloc>
+      <xloc>128</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -621,7 +626,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
+      <xloc>128</xloc>
       <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
@@ -661,8 +666,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>112</yloc>
+      <xloc>128</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -701,7 +706,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
+      <xloc>128</xloc>
       <yloc>16</yloc>
       <attributes_kjc/>
     </entry>
@@ -981,8 +986,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>464</yloc>
+      <xloc>128</xloc>
+      <yloc>480</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1061,8 +1066,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
-      <yloc>464</yloc>
+      <xloc>592</xloc>
+      <yloc>480</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1142,7 +1147,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1456</xloc>
-      <yloc>448</yloc>
+      <yloc>464</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1273,8 +1278,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1040</xloc>
-      <yloc>368</yloc>
+      <xloc>672</xloc>
+      <yloc>608</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1293,15 +1298,7 @@
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
-      <comment>${SOURCE_DIRECTORY}
-${HOST_URL}
-${TOKEN}
-${EMAIL_SMTP_SERVER}
-${EMAIL_SMTP_PORT}
-${EMAIL_SENDER_ADDRESS}
-${EMAIL_PASSWORD}
-${EMAIL_SENDER_NAME}
-${EMAIL_DESTINATION_ADDRESS}</comment>
+      <comment>Correctly Imported Data</comment>
       <include_files>Y</include_files>
       <zip_files>N</zip_files>
       <zip_name/>
@@ -1326,8 +1323,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>912</xloc>
-      <yloc>368</yloc>
+      <xloc>864</xloc>
+      <yloc>608</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1346,15 +1343,7 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
-      <comment>${SOURCE_DIRECTORY}
-${HOST_URL}
-${TOKEN}
-${EMAIL_SMTP_SERVER}
-${EMAIL_SMTP_PORT}
-${EMAIL_SENDER_ADDRESS}
-${EMAIL_PASSWORD}
-${EMAIL_SENDER_NAME}
-${EMAIL_DESTINATION_ADDRESS}</comment>
+      <comment/>
       <include_files>Y</include_files>
       <zip_files>N</zip_files>
       <zip_name/>
@@ -1380,19 +1369,7 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>720</xloc>
-      <yloc>240</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Error</name>
-      <description/>
-      <type>SUCCESS</type>
-      <attributes/>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>800</xloc>
-      <yloc>304</yloc>
+      <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -1403,8 +1380,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Credit Limit</from>
@@ -1412,8 +1389,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Customer Payment Terms</from>
@@ -1421,8 +1398,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation Prices List</from>
@@ -1430,8 +1407,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation Products</from>
@@ -1439,8 +1416,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation Product Details</from>
@@ -1448,8 +1425,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation Products Prices </from>
@@ -1457,26 +1434,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation List_Banks</from>
-      <to>Transformation List Payment Terms</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation List Payment Terms</from>
-      <to>Transformation List Customers</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation Open Invoices</from>
@@ -1484,8 +1443,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Start</from>
@@ -1502,17 +1461,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation NO_BORRAR_importa_ERP_FM</from>
-      <to>Transformation List_Banks</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>List Invoice Orders (est_pedidoerp.csv)</from>
@@ -1520,8 +1470,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Zones Sectors</from>
@@ -1529,8 +1479,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation Zona</from>
@@ -1538,8 +1488,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Sectors (sector.csv)</from>
@@ -1547,8 +1497,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Products UOM</from>
@@ -1556,8 +1506,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Customers</from>
@@ -1565,8 +1515,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation UOM</from>
@@ -1574,8 +1524,8 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List Products Prices</from>
@@ -1583,12 +1533,66 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Articulos Unidad(ListProductsUOM)</from>
       <to>Transformation List Customer Visit Plans</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation List Payment Terms</from>
+      <to>Transformation List Customers</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation NO_BORRAR_importa_ERP_FM</from>
+      <to>Transformation List_Banks</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation List_Banks</from>
+      <to>Transformation List Payment Terms</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation NO_BORRAR_importa_ERP_FM</from>
+      <to>Send Mail with error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation List Customer Visit Plans</from>
+      <to>Send Mail with Succes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Send Mail with Succes</from>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1605,30 +1609,12 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Send Mail with error</from>
-      <to>Error</to>
+      <from>Transformation List Payment Terms</from>
+      <to>Send Mail with error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation List Customer Visit Plans</from>
-      <to>Send Mail with Succes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Send Mail with Succes</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
@@ -1794,21 +1780,12 @@ ${EMAIL_DESTINATION_ADDRESS}</comment>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation NO_BORRAR_importa_ERP_FM</from>
+      <from>Set variables</from>
       <to>Send Mail with error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation NO_BORRAR_importa_ERP_FM</from>
-      <to>Send Mail with Succes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
