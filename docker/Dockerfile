@@ -3,6 +3,11 @@ FROM openjdk:8-jdk-alpine
 LABEL maintainer="EdwinBetanc0urt@outlook.com; ElsioSanches@gmail.com;" \
 	description="Mobile Stock gRPC Service"
 
+# Add operative system dependencies
+RUN apk --no-cache add \
+		zip \
+		curl
+
 WORKDIR /opt/pentaho
 
 ENV TARGET_DB_HOST=localhost
@@ -18,8 +23,7 @@ ENV EMAIL_PASSWORD=smtp_password
 ENV EMAIL_SENDER_NAME=ETL
 ENV EMAIL_DESTINATION_ADDRESS=destination@e-mail.com
 # Backend ENV
-ENV HOST="localhost"
-ENV PORT="5561"
+ENV HOST_URL="http://localhost:5561"
 ENV TOKEN="token-fill"
 ENV SOURCE_DIRECTORY="/opt/pentaho/"
 ENV SET_SOURCE_DIRECTORY="/opt/pentaho/"
@@ -34,8 +38,7 @@ COPY docker/run-server.sh /opt/pentaho/
 COPY docker/setup-run-server.sh /opt/pentaho/
 COPY docker/server.xml /opt/pentaho/
 
-RUN apk --no-cache add zip curl && \
-    unzip /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
+RUN unzip /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
     rm /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
     mkdir -p ~/.kettle  && \
     cp  /opt/pentaho/repositories.xml ~/.kettle
