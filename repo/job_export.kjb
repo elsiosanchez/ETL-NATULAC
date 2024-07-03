@@ -8,41 +8,51 @@
   <created_user>-</created_user>
   <created_date>2024/02/14 07:57:56.220</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/06/18 16:21:56.855</modified_date>
+  <modified_date>2024/06/19 14:28:31.322</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
-      <default_value>@EMAIL_DESTINATION_ADDRESS@</default_value>
+      <default_value>elsiosanches@gmail.com</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_PASSWORD</name>
-      <default_value>@EMAIL_PASSWORD@</default_value>
+      <default_value>Es1315..</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_ADDRESS</name>
-      <default_value>@EMAIL_SENDER_ADDRESS@</default_value>
+      <default_value>elsiosanchez15@outlook.com</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_NAME</name>
-      <default_value>@EMAIL_SENDER_NAME@</default_value>
+      <default_value>File</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_PORT</name>
-      <default_value>@EMAIL_SMTP_PORT@</default_value>
+      <default_value>587</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_SERVER</name>
-      <default_value>@EMAIL_SMTP_SERVER@</default_value>
+      <default_value>smtp.office365.com</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_HOST_URL</name>
-      <default_value>@PLAY_HOST_URL@</default_value>
+      <default_value>http://10.11.12.102:5561</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>PLAY_INPUT_PATH</name>
+      <default_value>/tmp/play/orders/</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>PLAY_OUTPUT_PATH</name>
+      <default_value>/tmp/play/masters/</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -51,18 +61,8 @@
       <description/>
     </parameter>
     <parameter>
-      <name>PLAY_INPUT_PATH</name>
-      <default_value>@PLAY_INPUT_PATH@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>PLAY_OUTPUT_PATH</name>
-      <default_value>@PLAY_OUTPUT_PATH@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
       <name>TOKEN</name>
-      <default_value>@TOKEN@</default_value>
+      <default_value>Bearer eyJhbGciOiJIUzI1NiJ9.eyJBRF9DbGllbnRfSUQiOjAsIkFEX09yZ19JRCI6MCwiQURfUm9sZV9JRCI6MCwiQURfVXNlcl9JRCI6MTAwLCJNX1dhcmVob3VzZV9JRCI6MCwiQURfTGFuZ3VhZ2UiOiJlbl9VUyIsImlhdCI6MTcxNzg2MDQwM30.3ZmU_DvxpVwIDY9wfZjs6KrRTwPNQBr12qh_fszQ2Qg</default_value>
       <description/>
     </parameter>
   </parameters>

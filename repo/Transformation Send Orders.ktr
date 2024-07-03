@@ -5,7 +5,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>/ETL/Transformations</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2024/06/10 14:08:53.604</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2024/06/14 19:04:14.718</modified_date>
+    <modified_date>2024/07/03 14:53:26.754</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -496,23 +496,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>File exists Cabezera</from>
-      <to>Switch / case Cabezera</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Switch / case Cabezera</from>
-      <to>Cabezera</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>File exists Items</from>
       <to>Switch / case Iterms</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Switch / case Iterms</from>
-      <to>Lineas</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -583,6 +568,46 @@
     <hop>
       <from>Error Mail in Proccess Order</from>
       <to>Select ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get file names</from>
+      <to>Sort rows Items 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get FIle Name Cabecera</from>
+      <to>Select values Cabezera</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows Items 2</from>
+      <to>Get FIle Name Cabecera</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows Items 2</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Select values Items</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables 2</from>
+      <to>Get file names</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values Items</from>
+      <to>Lineas</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values Cabezera</from>
+      <to>Cabezera</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -687,8 +712,8 @@ const messageError = 'Error El archivo Items No encontrado en la siguente ruta -
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>96</yloc>
+      <xloc>784</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -734,8 +759,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
-      <yloc>208</yloc>
+      <xloc>1328</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -902,6 +927,44 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
     </GUI>
   </step>
   <step>
+    <name>Data Validator</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>isError</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>Microsoft Excel output</default_target_step>
+    <cases>
+      <case>
+        <value>Y</value>
+        <target_step>Error Mail in Proccess Order</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Error Mail Cabezera</name>
     <type>Mail</type>
     <description/>
@@ -963,8 +1026,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>208</yloc>
+      <xloc>1488</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1030,8 +1093,75 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>208</yloc>
+      <xloc>784</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Error Mail in Proccess Order</name>
+    <type>Mail</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <server>EMAIL_SERVER</server>
+    <port>EMAIL_PORT</port>
+    <destination>EMAIL_DESTINATION</destination>
+    <destinationCc/>
+    <destinationBCc/>
+    <replyToAddresses/>
+    <replyto>EMAIL_SENDER</replyto>
+    <replytoname>EMAIL_TITLE</replytoname>
+    <subject>errorMessage</subject>
+    <include_date>Y</include_date>
+    <include_subfolders>N</include_subfolders>
+    <zipFilenameDynamic>N</zipFilenameDynamic>
+    <isFilenameDynamic>N</isFilenameDynamic>
+    <attachContentFromField>N</attachContentFromField>
+    <attachContentField>File Items</attachContentField>
+    <attachContentFileNameField>File Items</attachContentFileNameField>
+    <dynamicFieldname/>
+    <dynamicWildcard/>
+    <dynamicZipFilename/>
+    <sourcefilefoldername/>
+    <sourcewildcard/>
+    <contact_person/>
+    <contact_phone/>
+    <comment>errorMessage</comment>
+    <include_files>N</include_files>
+    <zip_files>N</zip_files>
+    <zip_name/>
+    <zip_limit_size>0</zip_limit_size>
+    <use_auth>Y</use_auth>
+    <use_secure_auth>Y</use_secure_auth>
+    <auth_user>EMAIL_ATORIZATIONS</auth_user>
+    <auth_password>Encrypted 2be98ea852beebebb9b389d43e9bd9dfe</auth_password>
+    <only_comment>Y</only_comment>
+    <use_HTML>Y</use_HTML>
+    <use_Priority>N</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>TLS</secureconnectiontype>
+    <embeddedimages>
+      </embeddedimages>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1060,8 +1190,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>96</yloc>
+      <xloc>1312</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1090,8 +1220,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>96</yloc>
+      <xloc>1040</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1300,8 +1430,119 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
-      <yloc>208</yloc>
+      <xloc>1168</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables Email</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>EMAIL_DESTINATION</name>
+        <variable>${EMAIL_DESTINATION_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SENDER</name>
+        <variable>${EMAIL_SENDER_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SERVER</name>
+        <variable>${EMAIL_SMTP_SERVER}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_PORT</name>
+        <variable>${EMAIL_SMTP_PORT}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_ATORIZATIONS</name>
+        <variable>${EMAIL_SENDER_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_PASSWORD</name>
+        <variable>${EMAIL_PASSWORD}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_TITLE</name>
+        <variable>Error al Procesar Orden</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1392,6 +1633,56 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
     </GUI>
   </step>
   <step>
+    <name>JSON Orders Result</name>
+    <type>JsonOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <outputValue>OrderResult</outputValue>
+    <jsonBloc>order</jsonBloc>
+    <nrRowsInBloc>1</nrRowsInBloc>
+    <operation_type>both</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>Y</addtoresult>
+    <file>
+      <name>/tmp/Order</name>
+      <extention>json</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
+    </file>
+    <fields>
+      <field>
+        <name>result</name>
+        <element>result</element>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>JSON input</name>
     <type>JsonInput</type>
     <description/>
@@ -1474,7 +1765,7 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       <schema_name/>
     </partitioning>
     <filename>/home/elsio/Escritorio/4. Integración a Fuerza Móvil/1. Caso Clientes a Consignación/Pto Facturación Barquisimeto/items.txt</filename>
-    <filename_field>FileItems</filename_field>
+    <filename_field>FileNameItems</filename_field>
     <rownum_field/>
     <include_filename>N</include_filename>
     <separator>|</separator>
@@ -1608,8 +1899,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>208</yloc>
+      <xloc>176</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1687,6 +1978,68 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
     </GUI>
   </step>
   <step>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var isError = false;
+var errorMessage = 'error'
+
+var jsonObject = JSON.parse(result);
+
+if (jsonObject.code) {
+	isError = true;
+	errorMessage = jsonObject.message
+};</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>isError</name>
+        <rename>isError</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>errorMessage</name>
+        <rename>errorMessage</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>REST client</name>
     <type>Rest</type>
     <description/>
@@ -1739,6 +2092,51 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
     <GUI>
       <xloc>1168</xloc>
       <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select ERROR</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>customer_value</name>
+        <rename>customer_value</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1975,6 +2373,74 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
     </GUI>
   </step>
   <step>
+    <name>Select value Result</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>isError</name>
+      </field>
+      <field>
+        <name>errorMessage</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>isError</name>
+        <rename>isError</rename>
+        <type>Boolean</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>errorMessage</name>
+        <rename>errorMessage</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Select values</name>
     <type>SelectValues</type>
     <description/>
@@ -2011,8 +2477,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
-      <yloc>96</yloc>
+      <xloc>1168</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2137,8 +2603,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>336</yloc>
+      <xloc>176</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2179,8 +2645,8 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>208</yloc>
+      <xloc>1152</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2221,14 +2687,14 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>96</yloc>
+      <xloc>912</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Modified JavaScript value</name>
-    <type>ScriptValueMod</type>
+    <name>Get file names</name>
+    <type>GetFileNames</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2237,43 +2703,26 @@ const messageError = 'Error El archivo Cabezera No encontrado en la siguente rut
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var isError = false;
-var errorMessage = 'error'
-
-var jsonObject = JSON.parse(result);
-
-if (jsonObject.code) {
-	isError = true;
-	errorMessage = jsonObject.message
-};</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>isError</name>
-        <rename>isError</rename>
-        <type>Boolean</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>errorMessage</name>
-        <rename>errorMessage</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
+    <filter>
+      <filterfiletype>all_files</filterfiletype>
+    </filter>
+    <doNotFailIfNoFile>N</doNotFailIfNoFile>
+    <rownum>N</rownum>
+    <isaddresult>Y</isaddresult>
+    <filefield>Y</filefield>
+    <rownum_field/>
+    <filename_Field>File</filename_Field>
+    <wildcard_Field/>
+    <exclude_wildcard_Field/>
+    <dynamic_include_subfolders>N</dynamic_include_subfolders>
+    <limit>0</limit>
+    <file>
+      <name>/home/elsio/epale</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2283,14 +2732,79 @@ if (jsonObject.code) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
-      <yloc>336</yloc>
+      <xloc>400</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select value Result</name>
-    <type>SelectValues</type>
+    <name>Get FIle Name Cabecera</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select values Cabezera</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>short_filename</leftvalue>
+            <function>STARTS WITH</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>cabecera</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>extension</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>txt</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows Items 2</name>
+    <type>SortRows</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
@@ -2299,50 +2813,22 @@ if (jsonObject.code) {
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>isError</name>
-        <rename/>
+        <name>lastmodifiedtime</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
-      <field>
-        <name>errorMessage</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>isError</name>
-        <rename>isError</rename>
-        <type>Boolean</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>errorMessage</name>
-        <rename>errorMessage</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2353,14 +2839,14 @@ if (jsonObject.code) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
-      <yloc>208</yloc>
+      <xloc>176</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Error Mail in Proccess Order</name>
-    <type>Mail</type>
+    <name>Select values Cabezera</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2369,48 +2855,13 @@ if (jsonObject.code) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <server>EMAIL_SERVER</server>
-    <port>EMAIL_PORT</port>
-    <destination>EMAIL_DESTINATION</destination>
-    <destinationCc/>
-    <destinationBCc/>
-    <replyToAddresses/>
-    <replyto>EMAIL_SENDER</replyto>
-    <replytoname>EMAIL_TITLE</replytoname>
-    <subject>errorMessage</subject>
-    <include_date>Y</include_date>
-    <include_subfolders>N</include_subfolders>
-    <zipFilenameDynamic>N</zipFilenameDynamic>
-    <isFilenameDynamic>N</isFilenameDynamic>
-    <attachContentFromField>N</attachContentFromField>
-    <attachContentField>File Items</attachContentField>
-    <attachContentFileNameField>File Items</attachContentFileNameField>
-    <dynamicFieldname/>
-    <dynamicWildcard/>
-    <dynamicZipFilename/>
-    <sourcefilefoldername/>
-    <sourcewildcard/>
-    <contact_person/>
-    <contact_phone/>
-    <comment>errorMessage</comment>
-    <include_files>N</include_files>
-    <zip_files>N</zip_files>
-    <zip_name/>
-    <zip_limit_size>0</zip_limit_size>
-    <use_auth>Y</use_auth>
-    <use_secure_auth>Y</use_secure_auth>
-    <auth_user>EMAIL_ATORIZATIONS</auth_user>
-    <auth_password>Encrypted 2be98ea852beebebb9b389d43e9bd9dfe</auth_password>
-    <only_comment>Y</only_comment>
-    <use_HTML>Y</use_HTML>
-    <use_Priority>N</use_Priority>
-    <encoding>UTF-8</encoding>
-    <priority>normal</priority>
-    <importance>normal</importance>
-    <sensitivity>normal</sensitivity>
-    <secureconnectiontype>TLS</secureconnectiontype>
-    <embeddedimages>
-      </embeddedimages>
+    <fields>
+      <field>
+        <name>short_filename</name>
+        <rename>FileNameCabecera</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2420,14 +2871,14 @@ if (jsonObject.code) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>64</yloc>
+      <xloc>512</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Data Validator</name>
-    <type>SwitchCase</type>
+    <name>Select values Items</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2436,19 +2887,13 @@ if (jsonObject.code) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fieldname>isError</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>String</case_value_type>
-    <case_value_format/>
-    <case_value_decimal/>
-    <case_value_group/>
-    <default_target_step>Microsoft Excel output</default_target_step>
-    <cases>
-      <case>
-        <value>Y</value>
-        <target_step>Error Mail in Proccess Order</target_step>
-      </case>
-    </cases>
+    <fields>
+      <field>
+        <name>short_filename</name>
+        <rename>FileNameItems</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2458,13 +2903,57 @@ if (jsonObject.code) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>64</yloc>
+      <xloc>176</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Get variables Email</name>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select values Items</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>short_filename</leftvalue>
+        <function>STARTS WITH</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>items</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables 2</name>
     <type>GetVariable</type>
     <description/>
     <distribute>N</distribute>
@@ -2488,32 +2977,20 @@ if (jsonObject.code) {
         <trim_type>none</trim_type>
       </field>
       <field>
+        <name>EMAIL_PASSWORD</name>
+        <variable>${EMAIL_PASSWORD}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>EMAIL_SENDER</name>
         <variable>${EMAIL_SENDER_ADDRESS}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>EMAIL_SERVER</name>
-        <variable>${EMAIL_SMTP_SERVER}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>EMAIL_PORT</name>
-        <variable>${EMAIL_SMTP_PORT}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -2536,8 +3013,20 @@ if (jsonObject.code) {
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>EMAIL_PASSWORD</name>
-        <variable>${EMAIL_PASSWORD}</variable>
+        <name>EMAIL_PORT</name>
+        <variable>${EMAIL_SMTP_PORT}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SERVER</name>
+        <variable>${EMAIL_SMTP_SERVER}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -2549,8 +3038,68 @@ if (jsonObject.code) {
       </field>
       <field>
         <name>EMAIL_TITLE</name>
-        <variable>Error al Procesar Orden</variable>
+        <variable>${EMAIL_SUBJECT}</variable>
         <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FULL_PATH</name>
+        <variable>${HOST_URL}/v1/order</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>File Cabezera</name>
+        <variable>${SET_SOURCE_DIRECTORY}/cabecera.txt</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ATORIZATIONS</name>
+        <variable>${TOKEN}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>File Items</name>
+        <variable>${SET_SOURCE_DIRECTORY}/items.txt</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>File</name>
+        <variable>${SET_SOURCE_DIRECTORY}</variable>
+        <type>None</type>
         <format/>
         <currency/>
         <decimal/>
@@ -2569,47 +3118,27 @@ if (jsonObject.code) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
-      <yloc>64</yloc>
+      <xloc>400</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>JSON Orders Result</name>
-    <type>JsonOutput</type>
+    <name>File exists Cabezera 2</name>
+    <type>FileExists</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <outputValue>OrderResult</outputValue>
-    <jsonBloc>order</jsonBloc>
-    <nrRowsInBloc>1</nrRowsInBloc>
-    <operation_type>both</operation_type>
-    <compatibility_mode>N</compatibility_mode>
-    <encoding>UTF-8</encoding>
-    <addtoresult>Y</addtoresult>
-    <file>
-      <name>/tmp/Order</name>
-      <extention>json</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <create_parent_folder>N</create_parent_folder>
-      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
-      <servlet_output>N</servlet_output>
-    </file>
-    <fields>
-      <field>
-        <name>result</name>
-        <element>result</element>
-      </field>
-    </fields>
+    <filenamefield>FileCabezera</filenamefield>
+    <resultfieldname>result</resultfieldname>
+    <includefiletype>N</includefiletype>
+    <filetypefieldname/>
+    <addresultfilenames>N</addresultfilenames>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2619,53 +3148,8 @@ if (jsonObject.code) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1168</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select ERROR</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>customer_value</name>
-        <rename>customer_value</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>912</xloc>
-      <yloc>64</yloc>
+      <xloc>560</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
