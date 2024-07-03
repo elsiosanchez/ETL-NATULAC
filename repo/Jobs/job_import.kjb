@@ -12,57 +12,57 @@
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
-      <default_value>elsiosanches@gmail.com</default_value>
+      <default_value>EMAIL_DESTINATION_ADDRESS</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_PASSWORD</name>
-      <default_value>Es1315..</default_value>
+      <default_value>EMAIL_PASSWORD</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_ADDRESS</name>
-      <default_value>elsiosanchez15@outlook.com</default_value>
+      <default_value>EMAIL_SENDER_ADDRESS</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_NAME</name>
-      <default_value>epale</default_value>
+      <default_value>EMAIL_SENDER_NAME</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_PORT</name>
-      <default_value>587</default_value>
+      <default_value>EMAIL_SMTP_PORT</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_SERVER</name>
-      <default_value>smtp.office365.com</default_value>
+      <default_value>EMAIL_SMTP_SERVER</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_HOST_URL</name>
-      <default_value>http://10.11.12.194:5561</default_value>
+      <default_value>PLAY_HOST_URL</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_INPUT_PATH</name>
-      <default_value>/home/elsio/epale</default_value>
+      <default_value>PLAY_INPUT_PATH</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_OUTPUT_PATH</name>
-      <default_value>tmp/play/masters/Orders/draft</default_value>
+      <default_value>PLAY_OUTPUT_PATH</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PORT</name>
-      <default_value>@PORT@</default_value>
+      <default_value>PORT</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>TOKEN</name>
-      <default_value>Bearer eyJhbGciOiJIUzI1NiJ9.eyJBRF9DbGllbnRfSUQiOjAsIkFEX09yZ19JRCI6MCwiQURfUm9sZV9JRCI6MCwiQURfVXNlcl9JRCI6MTAwLCJNX1dhcmVob3VzZV9JRCI6MCwiQURfTGFuZ3VhZ2UiOiJlc19WRSIsImlhdCI6MTcyMDAyNDk5OH0.EWzgHXWrx7byvo-rWEYvpjCUyrXpHYvrhWyflnKKj2c</default_value>
+      <default_value>TOKEN</default_value>
       <description/>
     </parameter>
   </parameters>
