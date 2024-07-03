@@ -8,61 +8,61 @@
   <created_user>-</created_user>
   <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/07/03 17:03:07.407</modified_date>
+  <modified_date>2024/07/03 17:23:42.769</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
-      <default_value>EMAIL_DESTINATION_ADDRESS</default_value>
+      <default_value>@EMAIL_DESTINATION_ADDRESS@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_PASSWORD</name>
-      <default_value>EMAIL_PASSWORD</default_value>
+      <default_value>@EMAIL_PASSWORD@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_ADDRESS</name>
-      <default_value>EMAIL_SENDER_ADDRESS</default_value>
+      <default_value>@EMAIL_SENDER_ADDRESS@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_NAME</name>
-      <default_value>EMAIL_SENDER_NAME</default_value>
+      <default_value>@EMAIL_SENDER_NAME@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_PORT</name>
-      <default_value>EMAIL_SMTP_PORT</default_value>
+      <default_value>@EMAIL_SMTP_PORT@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_SERVER</name>
-      <default_value>EMAIL_SMTP_SERVER</default_value>
+      <default_value>@EMAIL_SMTP_SERVER@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_HOST_URL</name>
-      <default_value>PLAY_HOST_URL</default_value>
+      <default_value>@PLAY_HOST_URL@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_INPUT_PATH</name>
-      <default_value>PLAY_INPUT_PATH</default_value>
+      <default_value>@PLAY_INPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_OUTPUT_PATH</name>
-      <default_value>PLAY_OUTPUT_PATH</default_value>
+      <default_value>@PLAY_OUTPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PORT</name>
-      <default_value>PORT</default_value>
+      <default_value>@PORT@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>TOKEN</name>
-      <default_value>TOKEN</default_value>
+      <default_value>@TOKEN@</default_value>
       <description/>
     </parameter>
   </parameters>
