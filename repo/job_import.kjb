@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/07/03 17:23:42.769</modified_date>
+  <modified_date>2024/07/03 20:40:15.944</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -409,7 +409,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
+      <xloc>224</xloc>
       <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
@@ -447,11 +447,11 @@
       <destinationBCc/>
       <replyto>${EMAIL_SENDER_ADDRESS}</replyto>
       <replytoname>${EMAIL_SUBJECT}</replytoname>
-      <subject>ETL Execution Successes</subject>
+      <subject>ETL Execution Orders</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
-      <comment>Order Created in ADempiere</comment>
+      <comment>Send Orders to ADempiere</comment>
       <include_files>Y</include_files>
       <zip_files>N</zip_files>
       <zip_name/>
@@ -476,8 +476,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>112</yloc>
+      <xloc>704</xloc>
+      <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -521,8 +521,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>912</xloc>
-      <yloc>448</yloc>
+      <xloc>864</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -535,50 +535,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>288</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Move files 3</name>
-      <description/>
-      <type>MOVE_FILES</type>
-      <attributes/>
-      <move_empty_folders>N</move_empty_folders>
-      <arg_from_previous>N</arg_from_previous>
-      <include_subfolders>N</include_subfolders>
-      <add_result_filesname>N</add_result_filesname>
-      <destination_is_a_file>N</destination_is_a_file>
-      <create_destination_folder>N</create_destination_folder>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <nr_errors_less_than>10</nr_errors_less_than>
-      <success_condition>success_if_no_errors</success_condition>
-      <AddDateBeforeExtension>N</AddDateBeforeExtension>
-      <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
-      <iffileexists>do_nothing</iffileexists>
-      <destinationFolder/>
-      <ifmovedfileexists>do_nothing</ifmovedfileexists>
-      <moved_date_time_format/>
-      <create_move_to_folder>N</create_move_to_folder>
-      <add_moved_date>N</add_moved_date>
-      <add_moved_time>N</add_moved_time>
-      <SpecifyMoveFormat>N</SpecifyMoveFormat>
-      <AddMovedDateBeforeExtension>N</AddMovedDateBeforeExtension>
-      <simulate>N</simulate>
-      <fields>
-        <field>
-          <source_filefolder>${PLAY_INPUT_PATH}</source_filefolder>
-          <destination_filefolder>/tmp/process</destination_filefolder>
-          <wildcard/>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>624</xloc>
+      <xloc>560</xloc>
       <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
@@ -599,7 +556,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1024</xloc>
-      <yloc>112</yloc>
+      <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -618,8 +575,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1072</xloc>
-      <yloc>448</yloc>
+      <xloc>1024</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -636,7 +593,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
+      <xloc>400</xloc>
       <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
@@ -676,7 +633,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>752</xloc>
+      <xloc>704</xloc>
       <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
@@ -689,23 +646,57 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1168</xloc>
-      <yloc>112</yloc>
+      <yloc>128</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Move files</name>
+      <description/>
+      <type>MOVE_FILES</type>
+      <attributes/>
+      <move_empty_folders>N</move_empty_folders>
+      <arg_from_previous>N</arg_from_previous>
+      <include_subfolders>N</include_subfolders>
+      <add_result_filesname>N</add_result_filesname>
+      <destination_is_a_file>N</destination_is_a_file>
+      <create_destination_folder>N</create_destination_folder>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <nr_errors_less_than>10</nr_errors_less_than>
+      <success_condition>success_if_no_errors</success_condition>
+      <AddDateBeforeExtension>N</AddDateBeforeExtension>
+      <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
+      <iffileexists>do_nothing</iffileexists>
+      <destinationFolder/>
+      <ifmovedfileexists>do_nothing</ifmovedfileexists>
+      <moved_date_time_format/>
+      <create_move_to_folder>N</create_move_to_folder>
+      <add_moved_date>N</add_moved_date>
+      <add_moved_time>N</add_moved_time>
+      <SpecifyMoveFormat>N</SpecifyMoveFormat>
+      <AddMovedDateBeforeExtension>N</AddMovedDateBeforeExtension>
+      <simulate>N</simulate>
+      <fields>
+        <field>
+          <source_filefolder>${PLAY_INPUT_PATH}</source_filefolder>
+          <destination_filefolder>/tmp/process</destination_filefolder>
+          <wildcard/>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>864</xloc>
+      <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Start</from>
-      <to>Set variables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Create a folder</from>
-      <to>Move files 3</to>
+      <to>Transformation Order</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -715,15 +706,6 @@
     <hop>
       <from>Send Mail with error</from>
       <to>Delete folders 2</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Set variables</from>
-      <to>Checks if files exist</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -740,8 +722,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Move files 3</from>
-      <to>Transformation Order</to>
+      <from>Set variables</from>
+      <to>Checks if files exist</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -749,17 +731,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Send Mail with Succes</from>
-      <to>Delete folders</to>
+      <from>Start</from>
+      <to>Set variables</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Delete folders</from>
-      <to>Success</to>
+      <from>Transformation Order</from>
+      <to>Send Mail with Succes</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -776,8 +758,26 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation Order</from>
-      <to>Send Mail with Succes</to>
+      <from>Send Mail with Succes</from>
+      <to>Move files</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Move files</from>
+      <to>Delete folders</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Delete folders</from>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
