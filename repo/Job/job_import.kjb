@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/07/03 20:40:15.944</modified_date>
+  <modified_date>2024/07/10 10:14:43.609</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -668,7 +668,7 @@
       <success_condition>success_if_no_errors</success_condition>
       <AddDateBeforeExtension>N</AddDateBeforeExtension>
       <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
-      <iffileexists>do_nothing</iffileexists>
+      <iffileexists>overwrite_file</iffileexists>
       <destinationFolder/>
       <ifmovedfileexists>do_nothing</ifmovedfileexists>
       <moved_date_time_format/>
@@ -763,8 +763,8 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Move files</from>
