@@ -8,46 +8,46 @@
   <created_user>-</created_user>
   <created_date>2024/05/20 10:56:33.380</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/07/11 15:27:53.678</modified_date>
+  <modified_date>2024/07/11 17:28:10.719</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
-      <default_value>elsiosanches@gmail.com</default_value>
+      <default_value>@EMAIL_DESTINATION_ADDRESS@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_PASSWORD</name>
-      <default_value>Es1315..</default_value>
+      <default_value>@EMAIL_PASSWORD@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_ADDRESS</name>
-      <default_value>elsiosanchez15@outlook.com</default_value>
+      <default_value>@EMAIL_SENDER_ADDRESS@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SENDER_NAME</name>
-      <default_value>Archivos ETL</default_value>
+      <default_value>@EMAIL_SENDER_NAME@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_PORT</name>
-      <default_value>587</default_value>
+      <default_value>@EMAIL_SMTP_PORT@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>EMAIL_SMTP_SERVER</name>
-      <default_value>smtp.office365.com</default_value>
+      <default_value>@EMAIL_SMTP_SERVER@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_HOST_URL</name>
-      <default_value>http://10.11.12.194:5561</default_value>
+      <default_value>@PLAY_HOST_URL@</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>PLAY_INPUT_PATH</name>
-      <default_value>/home/elsio/Escritorio/adempiere</default_value>
+      <default_value>@PLAY_INPUT_PATH@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -62,7 +62,7 @@
     </parameter>
     <parameter>
       <name>TOKEN</name>
-      <default_value>Bearer eyJhbGciOiJIUzI1NiJ9.eyJBRF9DbGllbnRfSUQiOjAsIkFEX09yZ19JRCI6MCwiQURfUm9sZV9JRCI6MCwiQURfVXNlcl9JRCI6MTAwLCJNX1dhcmVob3VzZV9JRCI6MCwiQURfTGFuZ3VhZ2UiOiJlbl9VUyIsImlhdCI6MTcyMDYyNzM3MH0.ID7RzDgtGgVQR2XeOHPUg0qn0W3v2nQK0lEHowfp3aQ</default_value>
+      <default_value>@TOKEN@</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -372,7 +372,7 @@
         </field>
         <field>
           <variable_name>SET_SOURCE_DIRECTORY</variable_name>
-          <variable_value>/tmp/process</variable_value>
+          <variable_value>/tmp/process/</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -526,26 +526,6 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Delete folders</name>
-      <description/>
-      <type>DELETE_FOLDERS</type>
-      <attributes/>
-      <arg_from_previous>N</arg_from_previous>
-      <success_condition>success_if_no_errors</success_condition>
-      <limit_folders>10</limit_folders>
-      <fields>
-        <field>
-          <name>/tmp/process</name>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>976</xloc>
-      <yloc>128</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
       <name>Transformation Order</name>
       <description/>
       <type>TRANS</type>
@@ -583,38 +563,6 @@
       <nr>0</nr>
       <xloc>608</xloc>
       <yloc>288</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Success</name>
-      <description/>
-      <type>SUCCESS</type>
-      <attributes/>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1152</xloc>
-      <yloc>128</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Delete folders 3</name>
-      <description/>
-      <type>DELETE_FOLDERS</type>
-      <attributes/>
-      <arg_from_previous>N</arg_from_previous>
-      <success_condition>success_if_no_errors</success_condition>
-      <limit_folders>10</limit_folders>
-      <fields>
-        <field>
-          <name>/tmp/process</name>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>992</xloc>
-      <yloc>432</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -661,31 +609,11 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Delete folders 2</name>
-      <description/>
-      <type>DELETE_FOLDERS</type>
-      <attributes/>
-      <arg_from_previous>N</arg_from_previous>
-      <success_condition>success_if_no_errors</success_condition>
-      <limit_folders>10</limit_folders>
-      <fields>
-        <field>
-          <name>/tmp/process</name>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>976</xloc>
-      <yloc>288</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
       <name>Check if a folder is empty</name>
       <description/>
       <type>FOLDER_IS_EMPTY</type>
       <attributes/>
-      <foldername>/tmp/process</foldername>
+      <foldername>/tmp/process/</foldername>
       <include_subfolders>N</include_subfolders>
       <specify_wildcard>N</specify_wildcard>
       <wildcard/>
@@ -705,7 +633,7 @@
       <include_subfolders>N</include_subfolders>
       <fields>
         <field>
-          <name>/tmp/process</name>
+          <name>/tmp/process/</name>
           <filemask/>
         </field>
       </fields>
@@ -743,15 +671,6 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete folders</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
