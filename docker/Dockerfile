@@ -32,7 +32,9 @@ RUN apk --no-cache add zip curl && \
     unzip /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
     rm /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
     mkdir -p ~/.kettle  && \
-    cp  /opt/pentaho/repositories.xml ~/.kettle
+    cp  /opt/pentaho/repositories.xml ~/.kettle && \
+	# chown -R adempiere /opt/pentaho/ && \
+	chmod 777 /opt/pentaho/*.sh
 
-    
+
 ENTRYPOINT [ "/bin/sh", "/opt/pentaho/setup-run-server.sh" ]
