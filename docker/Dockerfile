@@ -50,6 +50,7 @@ ADD pdi-ce-9.3.0.0-428.zip /opt/pentaho/
 RUN unzip /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
 	rm /opt/pentaho/pdi-ce-9.3.0.0-428.zip && \
 	mkdir -p ~/.kettle && \
+	mkdir -p /tmp/process/ && \
 	cp /opt/pentaho/repositories.xml ~/.kettle && \
 	# chown -R adempiere /opt/pentaho/ && \
 	chmod 777 /opt/pentaho/*.sh
