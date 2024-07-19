@@ -561,7 +561,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
+      <xloc>624</xloc>
       <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
@@ -660,7 +660,7 @@
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
-      <comment>${PLAY_INPUT_PATH}</comment>
+      <comment>Send Orders to ADempiere</comment>
       <include_files>Y</include_files>
       <zip_files>N</zip_files>
       <zip_name/>
