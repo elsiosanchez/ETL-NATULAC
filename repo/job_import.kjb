@@ -372,7 +372,7 @@
         </field>
         <field>
           <variable_name>SET_SOURCE_DIRECTORY</variable_name>
-          <variable_value>/tmp/process/</variable_value>
+          <variable_value>${PLAY_INPUT_PATH}/process</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -561,7 +561,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>624</xloc>
+      <xloc>608</xloc>
       <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
@@ -597,7 +597,7 @@
       <fields>
         <field>
           <source_filefolder>${PLAY_INPUT_PATH}</source_filefolder>
-          <destination_filefolder>/tmp/process</destination_filefolder>
+          <destination_filefolder>${PLAY_INPUT_PATH}/process</destination_filefolder>
           <wildcard/>
         </field>
       </fields>
@@ -660,7 +660,7 @@
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
-      <comment>Send Orders to ADempiere</comment>
+      <comment>${PLAY_INPUT_PATH}</comment>
       <include_files>Y</include_files>
       <zip_files>N</zip_files>
       <zip_name/>
