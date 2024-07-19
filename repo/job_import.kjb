@@ -640,8 +640,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>832</xloc>
-      <yloc>288</yloc>
+      <xloc>800</xloc>
+      <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -693,16 +693,16 @@
     </hop>
     <hop>
       <from>Transformation Order</from>
-      <to>Delete files</to>
+      <to>Send Mail with Succes</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation Order</from>
-      <to>Send Mail with Succes</to>
+      <from>Send Mail with Succes</from>
+      <to>Delete files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
